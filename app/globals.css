@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #09090b;
+}
+
+/* Prose customizations for dark mode */
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  @apply text-zinc-100;
+}
+
+.prose p, .prose li {
+  @apply text-zinc-300;
+}
+
+.prose a {
+  @apply text-blue-400 hover:text-blue-300;
+}
+
+.prose code {
+  @apply bg-zinc-800 px-1 py-0.5 rounded text-zinc-200;
+}
+
+.prose pre {
+  @apply bg-zinc-900 border border-zinc-800;
+}
+
+.prose blockquote {
+  @apply border-zinc-700 text-zinc-400;
+}
+
+.prose hr {
+  @apply border-zinc-800;
+}
+
+.prose strong {
+  @apply text-zinc-100;
+}
+
+.prose table th {
+  @apply text-zinc-200;
+}
+
+.prose table td {
+  @apply text-zinc-300 border-zinc-800;
+}
