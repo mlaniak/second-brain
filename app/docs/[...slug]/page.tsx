@@ -2,15 +2,11 @@ import { getDocumentBySlug, getDocuments } from '@/lib/docs'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
+// Force dynamic rendering - bypass static generation issues
+export const dynamic = 'force-dynamic'
+
 interface Props {
   params: { slug: string[] }
-}
-
-export async function generateStaticParams() {
-  const docs = await getDocuments()
-  return docs.map(doc => ({
-    slug: doc.slug.split('/')
-  }))
 }
 
 export default async function DocPage({ params }: Props) {
