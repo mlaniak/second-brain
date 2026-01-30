@@ -1,8 +1,6 @@
 import { getDocumentBySlug, getDocuments } from '@/lib/docs'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 
 interface Props {
   params: { slug: string[] }
@@ -39,8 +37,6 @@ export default async function DocPage({ params }: Props) {
               <span className={`px-2 py-1 rounded text-xs font-medium ${
                 doc.type === 'journal' ? 'bg-blue-900 text-blue-200' :
                 doc.type === 'concept' ? 'bg-purple-900 text-purple-200' :
-                doc.type === 'project' ? 'bg-green-900 text-green-200' :
-                doc.type === 'report' ? 'bg-amber-900 text-amber-200' :
                 'bg-zinc-800 text-zinc-200'
               }`}>
                 {doc.type}
@@ -52,9 +48,9 @@ export default async function DocPage({ params }: Props) {
             <h1 className="text-3xl font-bold text-zinc-100">{doc.title}</h1>
           </header>
           
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <div className="whitespace-pre-wrap text-zinc-300">
             {doc.content}
-          </ReactMarkdown>
+          </div>
         </article>
 
         <footer className="mt-16 pt-8 border-t border-zinc-800 text-zinc-500 text-sm">
